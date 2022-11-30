@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100vw;
+  height: 100vh;
+  color: $color-black;
+  font: inherit;
+  position: relative;
+  padding: 5rem;
+  background-color: $color-white;
+}
+
+@media only screen and (min-width: $xs) {
+  .app {
+  }
+}
+

@@ -1,0 +1,46 @@
+
+.talk-to-me {
+  width: max-content;
+  background-color: inherit;
+
+  &__avatar-wrapper {
+    position: relative;
+    z-index: 1;
+    background-color: inherit;
+
+    > button {
+      &:disabled {
+        cursor: default;
+      }
+    }
+  }
+
+  &__toggle {
+    position: absolute;
+    right: 0.25rem;
+    bottom: 0.5rem;
+  }
+
+  &__texting {
+    transform: translateY(-150%);
+    -webkit-transform: translateY(-150%);
+    -moz-transform: translateY(-150%);
+    -ms-transform: translateY(-150%);
+    -o-transform: translateY(-150%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    -webkit-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    -ms-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+
+    &--show {
+      transform: translateY(0%);
+      -webkit-transform: translateY(0%);
+      -moz-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+      -o-transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+}
