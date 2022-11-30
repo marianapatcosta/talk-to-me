@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextChat renders without errors and matches snapshot 1`] = `
+<div
+  class="undefined undefined"
+>
+  <div
+    class="undefined  "
+  >
+    <form>
+      <textarea
+        placeholder="text here"
+        rows="2"
+      />
+      <button
+        aria-label="click to submit your message"
+        class="undefined "
+        type="submit"
+      >
+        <svg
+          data-testid="send-svg"
+          role="img"
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            send
+          </title>
+          <path
+            d="M4.667 26.307v-7.983L21.81 16.02 4.667 13.716V5.733l24 10.285z"
+          />
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>
+`;
