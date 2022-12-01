@@ -1,5 +1,5 @@
-$blink-animation-duration: 8;
-$wink-animation-duration: 0.2;
+$blink-animation-duration: 88.8;
+$wink-animation-duration: 30.2;
 $lift-eyebrow-animation-duration: 2;
 $pouting-animation-duration: 1.5;
 $rolling-lift-eyes-animation-duration: 1;
@@ -218,7 +218,7 @@ $talk-smile-duration: 0.7;
 }
 
 @keyframes hide-eye-back-and-iris {
-  98% {
+  8% {
     @include transform(0, 0, 1, 1);
   }
   100% {
@@ -227,7 +227,7 @@ $talk-smile-duration: 0.7;
 }
 
 @keyframes squeeze {
-  98% {
+  8% {
     @include transform(0, 0, 1, 1);
   }
   100% {
