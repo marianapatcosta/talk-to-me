@@ -1000,12 +1000,10 @@ export const Avatar = memo(
                 <g
                   id='svga-group-eyes-left-move'
                   transform='matrix(1,0,0,1,0,0)'
+                  className={styles[`eye-back-iris${leftEyeClass}`]}
                 >
                   <g id='svga-group-eyes-left' transform='matrix(1,0,0,1,0,0)'>
-                    <g
-                      id='svga-group-eyesback-left'
-                      className={styles[`eye-back-iris${leftEyeClass}`]}
-                    >
+                    <g id='svga-group-eyesback-left'>
                       <path
                         id='SvgjsPath3186'
                         d='M61.952 84.523c-0.506-2.285 5.191-3.973 12.711-3.051 7.518 0.923 12.738 5.524 12.052 7.844 -0.38 1.286-10.639 3.245-14.253 2.847C68.798 91.758 63.174 90.04 61.952 84.523z'

@@ -7,7 +7,22 @@ The interaction can occur in two ways:
 1. By clicking in the avatar and talk;
 2. By switching to text mode and text the input;
 
+![Group 738](https://user-images.githubusercontent.com/43031902/205179057-de9cc698-c263-4287-8f01-51a7541b03fc.png)
+
 Note: SpeechRecognition API is only available in some browsers. Check [here](https://caniuse.com/speech-recognition) browser compatibility.
+
+## Installation
+### **_npm_**
+
+```shell
+npm install @marianapatcosta/talk-to-me
+```
+
+### **_yarn_**
+
+```shell
+yarn add @marianapatcosta/talk-to-me
+```
 
 ## Get Start
 

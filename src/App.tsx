@@ -1,6 +1,7 @@
 import { ReactElement, useReducer } from 'react'
 import { TalkToMe } from '@/components'
 import { conversation } from './conversation.example'
+import { AvatarProps } from './types'
 
 const SMILE = 'smile'
 const ROLL_EYES = 'rollEyes'
@@ -14,12 +15,6 @@ type Action =
       payload: Pick<AvatarProps, 'rollingEyes' & 'pouting'>
     }
 
-interface AvatarProps {
-  smiling: boolean
-  liftLeftEyebrow: boolean
-  pouting: boolean
-  rollingEyes: boolean
-}
 const getUnmatchedSpeechAction = (): ((newStatus: boolean) => Action) =>
   Math.random() > 0.5
     ? (newStatus: boolean) => ({
