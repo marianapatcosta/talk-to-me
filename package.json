@@ -3,7 +3,7 @@
   "author": "Mariana Costa",
   "private": true,
   "description": "Talk to Me is an application that allows the user to talk/text to a customizable avatar",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
