@@ -113,12 +113,15 @@ export const getOutput = (
     if (!item.inputKeywords || !item.inputKeywords.length) {
       continue
     }
-    const hasAllInputKeywords = item.inputKeywords.every((keyword) =>
-      recognitionResult.toLowerCase().includes(keyword.toLowerCase())
-    )
 
-    if (hasAllInputKeywords) {
-      return item.output
+    for (const inputKeywordsArray of item.inputKeywords) {
+      const hasAllInputKeywords = inputKeywordsArray.every((keyword) =>
+        recognitionResult.toLowerCase().includes(keyword.toLowerCase())
+      )
+
+      if (hasAllInputKeywords) {
+        return item.output
+      }
     }
   }
 }

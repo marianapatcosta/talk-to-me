@@ -21,6 +21,7 @@
   -moz-transition: filter 0.2s ease-in-out;
   -ms-transition: filter 0.2s ease-in-out;
   -o-transition: filter 0.2s ease-in-out;
+  cursor: pointer;
 
   &:before {
     content: '';

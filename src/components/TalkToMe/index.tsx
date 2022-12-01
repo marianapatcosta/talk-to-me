@@ -54,7 +54,8 @@ export const TalkToMe = ({
   onNoSpeechRecognitionSupport,
 }: TalkToMeProps): ReactElement => {
   const supportSpeechRecognition =
-    'SpeechRecognition' in window || 'webkitSpeechRecognition' in window
+    (typeof window !== 'undefined' && 'SpeechRecognition' in window) ||
+    'webkitSpeechRecognition' in window
   const showToggleButton =
     supportSpeechRecognition && activateSpeech && activateTextChat
   const [chatMode, setChatMode] = useState<ChatMode>(
@@ -74,7 +75,9 @@ export const TalkToMe = ({
   )
 
   const onAvatarClick = (): void => {
-    if (chatMode !== ChatMode.TALK) return
+    if (chatMode !== ChatMode.TALK) {
+      setChatMode(ChatMode.TALK)
+    }
     startListening()
   }
 
@@ -100,8 +103,9 @@ export const TalkToMe = ({
       <div className={`${styles['talk-to-me__avatar-wrapper']} `}>
         <button
           data-testid='avatar-button'
+          className={styles['talk-to-me__button']}
           onClick={onAvatarClick}
-          disabled={chatMode !== ChatMode.TALK}
+          disabled={!supportSpeechRecognition}
         >
           <Avatar
             additionalClass={avatarAdditionalClass}

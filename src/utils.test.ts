@@ -79,7 +79,7 @@ describe('getLevenshteinDistanceInPercentage', () => {
 const input = 'Hello, Good evening!'
 const conversation = [
   {
-    inputKeywords: ['Hello'],
+    inputKeywords: [['Hello']],
     inputs: [input],
     output: 'Hello, how are you?',
   },
@@ -96,7 +96,7 @@ describe('getOutput', () => {
   })
 
   it('should return `Hello, how are you?` when `Hello` is included in the result of speech recognition', () => {
-    const output = getOutput(conversation, 'Hello, What\'s up')
+    const output = getOutput(conversation, "Hello, What's up")
     expect(output).toBe('Hello, how are you?')
   })
 })

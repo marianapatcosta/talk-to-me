@@ -1,5 +1,8 @@
-
 .talk-to-me {
+  * {
+    box-sizing: border-box;
+  }
+
   width: max-content;
   background-color: inherit;
 
@@ -7,17 +10,23 @@
     position: relative;
     z-index: 1;
     background-color: inherit;
+  }
 
-    > button {
-      &:disabled {
-        cursor: default;
-      }
+  &__button {
+    border: none;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+
+    &:disabled {
+      cursor: default;
     }
   }
 
   &__toggle {
     position: absolute;
-    right: 0.25rem;
+    right: 0.15rem;
     bottom: 0.5rem;
   }
 

@@ -5,7 +5,7 @@ export enum VoiceGender {
 
 export interface Dialogue {
   inputs: string[]
-  inputKeywords: string[] // keywords mandatory in the input, to look for a matched answer if levenshtein distance is not confident enough
+  inputKeywords: string[][] // array of keywords mandatory in the input, to look for a matched answer if levenshtein distance is not confident enough
   output: string
 }
 
