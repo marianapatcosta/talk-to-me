@@ -20,12 +20,6 @@ interface UseSpeechConfigs {
   onUnmatchedOutput?: () => Promise<void> | void
 }
 
-const SpeechRecognition =
-  window.SpeechRecognition || window.webkitSpeechRecognition
-const SpeechGrammarList =
-  window.SpeechGrammarList || window.webkitSpeechGrammarList
-const SpeechSynthesisUtterance = window.SpeechSynthesisUtterance
-
 const MIN_SPEECH_CONFIDENCE = 0.75
 
 export const useSpeech = ({
@@ -39,10 +33,17 @@ export const useSpeech = ({
   onUnmatchedOutput,
 }: UseSpeechConfigs): UseSpeechProps => {
   const [talking, setTalking] = useState(false)
-
+  
   if (!supportSpeechRecognition) {
     return {} as UseSpeechProps
   }
+
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition
+  const SpeechGrammarList =
+    window.SpeechGrammarList || window.webkitSpeechGrammarList
+  const SpeechSynthesisUtterance = window.SpeechSynthesisUtterance
+
   const speechRecognition = new SpeechRecognition()
   const speechRecognitionList = new SpeechGrammarList()
   const speechSynthesisUtterance = new SpeechSynthesisUtterance()

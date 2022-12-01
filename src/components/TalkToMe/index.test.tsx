@@ -44,7 +44,7 @@ describe('TalkToMe', () => {
   afterEach(() => {
     jest.clearAllMocks()
   })
-  
+
   it('should render without errors and matches snapshot', () => {
     const {
       container: { firstChild },
@@ -62,8 +62,12 @@ describe('TalkToMe', () => {
     expect(screen.getByTestId('microphone-svg')).toBeInTheDocument()
   })
 
-  it('should call startListening on avatar click, if chat speech mode is on', () => {
+  it('should activate Talk mode and call startListening on avatar click, if chat speech mode is on', () => {
     render(<TalkToMe {...defaultProps} />)
+    const button = screen.getByTestId('toggle-button')
+    expect(screen.getByTestId('text-svg')).toBeInTheDocument()
+    fireEvent.click(button)
+    expect(screen.getByTestId('microphone-svg')).toBeInTheDocument()
 
     fireEvent.click(screen.getByTestId('avatar-button'))
     expect(startListeningMock).toHaveBeenCalled()
@@ -75,6 +79,6 @@ describe('TalkToMe', () => {
     expect(screen.getByTestId('text-svg')).toBeInTheDocument()
     fireEvent.click(button)
     fireEvent.click(screen.getByTestId('avatar-button'))
-    expect(startListeningMock).not.toHaveBeenCalled()
+    expect(startListeningMock).toHaveBeenCalled()
   })
 })

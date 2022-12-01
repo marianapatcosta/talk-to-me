@@ -3,6 +3,7 @@
 Talk to Me is an application that allows the user to talk/text to a customizable avatar. It was developed with Speech recognition API, TypeScript, React and SCSS modules.
 
 The interaction can occur in two ways:
+
 1. By clicking in the avatar and talk;
 2. By switching to text mode and text the input;
 
@@ -16,7 +17,7 @@ You can customize the conversation, by defining your own object of input/output 
 const conversation = [
   {
     inputs: string[]
-    inputKeywords: string[] // keywords mandatory in the input, to reproduce the corresponding output
+    inputKeywords: string[][] // array of keywords mandatory in the input, to reproduce the corresponding output. Each array of keywords must exist in the input to reproduce the corresponding output
     output: string
   },
   { ... },
@@ -25,7 +26,7 @@ const conversation = [
 
 The avatar shown in this project is an example created at [SVG Avatars](https://svgavatars.com/). You can create your own avatar, converted into a React component and add the SCSS classes needed for the SVG animations in the corresponding SVG elements, as shown in the template avatar.
 
-`TalkToMe`component can be used as described in the example below:
+`TalkToMe`component can be used as described in the example below and in `App.tsx` file:
 
 ```jsx
 const Component = () => {
@@ -86,7 +87,7 @@ interface AvatarProps {
 
 export interface Dialogue {
   inputs: string[]
-  inputKeywords: string[] 
+  inputKeywords: string[][]
 }
 ```
 

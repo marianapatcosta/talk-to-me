@@ -66,7 +66,7 @@ $talk-smile-duration: 0.7;
 @mixin teeth-moving($iterationCount: infinite, $fillMode: none) {
   @include animate(
     showing-teeth,
-    talk-smile-duration,
+    $talk-smile-duration,
     ease-in-out,
     0,
     $iterationCount,
@@ -178,7 +178,7 @@ $talk-smile-duration: 0.7;
     @include transform(0, 16, 1, 0);
 
     &--talk {
-      @include teeth-moving;
+      @include teeth-moving();
     }
 
     &--smile {

@@ -48,17 +48,17 @@ export const conversation: Dialogue[] = [
       'Hi, how are you',
       'Good morning',
     ],
-    inputKeywords: ['how', 'are', 'you'],
+    inputKeywords: [['how', 'are', 'you']],
     output: `I'm fine. and you?.`,
   },
   {
     inputs: ['What day is it', 'what day is today'],
-    inputKeywords: ['what', 'day'],
+    inputKeywords: [['what', 'day']],
     output: getDate('en'),
   },
   {
     inputs: ['What time is it', 'What is the time'],
-    inputKeywords: ['what', 'time'],
+    inputKeywords: [['what', 'time']],
     output: getTime('en'),
   },
 ]

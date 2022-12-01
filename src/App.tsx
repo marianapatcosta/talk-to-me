@@ -42,6 +42,8 @@ const avatarPropsReducer = (
       return { ...currentState, ...action.payload }
     case ANTIPATHY_FACE:
       return { ...currentState, ...action.payload }
+    default:
+      return currentState
   }
 }
 

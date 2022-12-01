@@ -1,5 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import libCss from 'vite-plugin-libcss'
+// @ts-ignore
+import dts from 'vite-plugin-dts'
 
 const path = require('path')
 
@@ -10,7 +13,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  plugins: [react()],
+  plugins: [dts({}), react(), libCss()],
   css: {
     preprocessorOptions: {
       scss: {
@@ -21,14 +24,15 @@ export default defineConfig({
   build: {
     target: 'esnext',
     manifest: true,
-    minify: true,
+    minify: undefined,
     reportCompressedSize: true,
+    cssCodeSplit: true,
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'TalkToMe',
       fileName: (format) => `talk-to-me.${format}.js`,
     },
-      rollupOptions: {
+    rollupOptions: {
       external: ['react', 'react-dom'],
       output: {
         globals: {
