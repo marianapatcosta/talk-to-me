@@ -7,9 +7,9 @@ The interaction can occur in two ways:
 1. By clicking in the avatar and talk;
 2. By switching to text mode and text the input;
 
-![talk-to-meA](https://mariana-costa.web.app/)
+![talk-to-meA](https://user-images.githubusercontent.com/43031902/205182593-8092c7bf-1df2-4e73-b9b5-3253618558e7.png)
 
-A demo is deployed [here](https://caniuse.com/speech-recognition).
+A demo is deployed [here](https://mariana-costa.web.app/).
 
 Note: SpeechRecognition API is only available in some browsers. Check [here](https://caniuse.com/speech-recognition) browser compatibility.
 
