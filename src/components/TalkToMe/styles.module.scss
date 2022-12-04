@@ -3,13 +3,14 @@
     box-sizing: border-box;
   }
 
-  width: max-content;
-  background-color: inherit;
+  width: min-content;
 
   &__avatar-wrapper {
     position: relative;
     z-index: 1;
     background-color: inherit;
+    width: max-content;
+    margin: auto;
   }
 
   &__button {
@@ -18,6 +19,7 @@
     color: inherit;
     cursor: pointer;
     font: inherit;
+    display: flex;
 
     &:disabled {
       cursor: default;
@@ -31,25 +33,50 @@
   }
 
   &__texting {
+    animation: show 0.5s ease-in forwards;
+    -webkit-animation: show 0.5s ease-in forwards;
+
+    &--hide {
+      animation: hide var(--hide-duration) ease-in forwards;
+      -webkit-animation: hide var(--hide-duration) ease-in forwards;
+    }
+  }
+}
+
+@keyframes show {
+  0% {
     transform: translateY(-150%);
     -webkit-transform: translateY(-150%);
     -moz-transform: translateY(-150%);
     -ms-transform: translateY(-150%);
     -o-transform: translateY(-150%);
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    -webkit-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    -moz-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    -ms-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    -o-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    opacity: 1;
+  }
+}
 
-    &--show {
-      transform: translateY(0%);
-      -webkit-transform: translateY(0%);
-      -moz-transform: translateY(0%);
-      -ms-transform: translateY(0%);
-      -o-transform: translateY(0%);
-      opacity: 1;
-    }
+@keyframes hide {
+  0% {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150%);
+    -webkit-transform: translateY(-150%);
+    -moz-transform: translateY(-150%);
+    -ms-transform: translateY(-150%);
+    -o-transform: translateY(-150%);
+    opacity: 0;
   }
 }

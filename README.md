@@ -7,7 +7,9 @@ The interaction can occur in two ways:
 1. By clicking in the avatar and talk;
 2. By switching to text mode and text the input;
 
-![talk-to-meA](https://user-images.githubusercontent.com/43031902/205182593-8092c7bf-1df2-4e73-b9b5-3253618558e7.png)
+![talk-to-meA](https://mariana-costa.web.app/)
+
+A demo is deployed [here](https://caniuse.com/speech-recognition).
 
 Note: SpeechRecognition API is only available in some browsers. Check [here](https://caniuse.com/speech-recognition) browser compatibility.
 
@@ -75,6 +77,7 @@ You can further customize your component by passing the props listed below:
 | textChatPlaceholder* | string | Placeholder to display in the text input component. | _Type your question here_ |
 | activateSpeech* | boolean | Enables/Disable speech functionality | true |
 | activateTextChat* | boolean | Enables/Disable text chat functionality | true |
+| interactive* | boolean | Determines if the component is interactive or just displays the avatar | true |
 | onUnmatchedOutput* | () => Promise<void> | void | Function to be executed when no matching input was found for the provided output | - |
 | onTyping* | () => void | Function to be executed while the output text is being typed | - |
 | onStopTalking* | () => void | Function to be executed when the output speech is finished | - |

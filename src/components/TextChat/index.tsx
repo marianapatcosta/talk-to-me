@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { CSSProperties, useCallback, useState } from 'react'
 import { ChatInputMessage } from '../ChatInputMessage'
 import { getOutput } from '../../utils'
 import { Dialogue } from '@/types'
@@ -10,6 +10,7 @@ export interface TextChatProps {
   defaultOutput: string
   textChatPlaceholder?: string
   additionalClass?: string
+  style?: CSSProperties,
   onTyping?: () => void
   onUnmatchedOutput?: () => Promise<void> | void
 }
@@ -19,6 +20,7 @@ const TextChat: React.FC<TextChatProps> = ({
   additionalClass,
   textChatPlaceholder,
   defaultOutput,
+  style,
   onTyping,
   onUnmatchedOutput,
 }) => {
@@ -40,7 +42,7 @@ const TextChat: React.FC<TextChatProps> = ({
   )
 
   return (
-    <div className={`${styles['text-chat']} ${additionalClass}`}>
+    <div className={`${additionalClass}`} style={style}>
       <ChatInputMessage
         placeholder={textChatPlaceholder}
         disabled={isTyping}

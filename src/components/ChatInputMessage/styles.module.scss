@@ -20,11 +20,6 @@
   &__container {
     box-shadow: 0 0.125rem 0.2rem rgba($color-black, 0.5);
     padding: 0.1rem 0.2rem 0.3rem 0.2rem;
-    border-radius: 0.25rem;
-    -webkit-border-radius: 0.25rem;
-    -moz-border-radius: 0.25rem;
-    -ms-border-radius: 0.25rem;
-    -o-border-radius: 0.25rem;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -32,12 +27,12 @@
   }
 
   textarea {
-    line-height: 1.5rem;
+    line-height: 1rem !important;
     padding: 0.1rem 0.3rem;
     margin: 0.1rem 0.3rem;
     width: 100%;
     min-height: 1.5rem;
-    max-height: 5rem;
+    max-height: 3rem;
     resize: vertical;
     border: none;
     font: inherit;
