@@ -4,6 +4,7 @@ import {
   MouseEvent,
   MemoExoticComponent,
   useCallback,
+  CSSProperties,
 } from 'react'
 import { Avatar as DefaultAvatar, ButtonIcon, TextChat } from '../../components'
 import { Keyboard, Microphone } from '../../assets/svg'
@@ -15,6 +16,8 @@ enum ChatMode {
   TALK = 'talk',
   TEXT = 'text',
 }
+
+const HIDE_ANIMATION_DURATION = 0.5 // in seconds
 
 export interface TalkToMeProps {
   conversation: Dialogue[]
@@ -29,6 +32,7 @@ export interface TalkToMeProps {
   textChatPlaceholder?: string
   activateSpeech?: boolean
   activateTextChat?: boolean
+  interactive?: boolean
   onUnmatchedOutput?: () => Promise<void> | void
   onTyping?: () => void
   onStopTalking?: () => void
@@ -48,6 +52,7 @@ export const TalkToMe = ({
   avatar: CustomAvatar,
   preferredVoiceName,
   voiceGender,
+  interactive = true,
   onUnmatchedOutput,
   onTyping,
   onStopTalking,
@@ -61,6 +66,7 @@ export const TalkToMe = ({
   const [chatMode, setChatMode] = useState<ChatMode>(
     activateSpeech && supportSpeechRecognition ? ChatMode.TALK : ChatMode.TEXT
   )
+  const [textChatDisappearing, setTextChatDisappearing] = useState(false)
 
   const toggleChatMode = useCallback(
     (event: MouseEvent<HTMLButtonElement>): void => {
@@ -69,7 +75,12 @@ export const TalkToMe = ({
         setChatMode(ChatMode.TEXT)
         return
       }
-      setChatMode(ChatMode.TALK)
+
+      setTextChatDisappearing(true)
+      setTimeout(() => {
+        setChatMode(ChatMode.TALK)
+        setTextChatDisappearing(false)
+      }, HIDE_ANIMATION_DURATION * 1000)
     },
     [chatMode]
   )
@@ -105,7 +116,7 @@ export const TalkToMe = ({
           data-testid='avatar-button'
           className={styles['talk-to-me__button']}
           onClick={onAvatarClick}
-          disabled={!supportSpeechRecognition}
+          disabled={!interactive || !supportSpeechRecognition}
         >
           <Avatar
             additionalClass={avatarAdditionalClass}
@@ -114,7 +125,7 @@ export const TalkToMe = ({
           />
         </button>
 
-        {showToggleButton && (
+        {interactive && showToggleButton && (
           <ButtonIcon
             data-testid='toggle-button'
             icon={chatMode === ChatMode.TALK ? Keyboard : Microphone}
@@ -126,16 +137,19 @@ export const TalkToMe = ({
           />
         )}
       </div>
-      {activateTextChat && (
+      {interactive && activateTextChat && chatMode === ChatMode.TEXT && (
         <TextChat
           conversation={conversation}
           defaultOutput={defaultOutput}
           textChatPlaceholder={textChatPlaceholder}
           additionalClass={`${styles['talk-to-me__texting']} ${
-            chatMode === ChatMode.TEXT
-              ? styles['talk-to-me__texting--show']
-              : ''
+            textChatDisappearing ? styles['talk-to-me__texting--hide'] : ''
           }`}
+          style={
+            {
+              '--hide-duration': `${HIDE_ANIMATION_DURATION}s`,
+            } as CSSProperties
+          }
           onUnmatchedOutput={onUnmatchedOutput}
           onTyping={onTyping}
         />
