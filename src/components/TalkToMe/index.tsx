@@ -58,9 +58,10 @@ export const TalkToMe = ({
   onStopTalking,
   onNoSpeechRecognitionSupport,
 }: TalkToMeProps): ReactElement => {
-  const supportSpeechRecognition =
-    (typeof window !== 'undefined' && 'SpeechRecognition' in window) ||
-    'webkitSpeechRecognition' in window
+ const supportSpeechRecognition =
+   typeof window !== 'undefined'
+     ? !!window.SpeechRecognition || window.webkitSpeechRecognition
+     : false
   const showToggleButton =
     supportSpeechRecognition && activateSpeech && activateTextChat
   const [chatMode, setChatMode] = useState<ChatMode>(
