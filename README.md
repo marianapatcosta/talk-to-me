@@ -43,7 +43,7 @@ const conversation = [
 
 The avatar shown in this project is an example created at [SVG Avatars](https://svgavatars.com/). You can create your own avatar, converted into a React component and add the SCSS classes needed for the SVG animations in the corresponding SVG elements, as shown in the template avatar.
 
-`TalkToMe`component can be used as described in the example below and in `App.tsx` file:
+`TalkToMe` component can be used as described in the example below and in `App.tsx` file:
 
 ```jsx
 const Component = () => {

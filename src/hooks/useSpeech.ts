@@ -33,7 +33,7 @@ export const useSpeech = ({
   onUnmatchedOutput,
 }: UseSpeechConfigs): UseSpeechProps => {
   const [talking, setTalking] = useState(false)
-  
+
   if (!supportSpeechRecognition) {
     return {} as UseSpeechProps
   }
@@ -118,6 +118,22 @@ export const useSpeech = ({
     }
     setTalking(true)
     speechSynthesis.speak(speechSynthesisUtterance)
+
+    /* workaround to overcome SpeechSynthesis API bug that fails after speaking for 15s */
+    const speechTimer = () => {
+      const timerId = setTimeout(() => {
+        console.log(speechSynthesis.speaking)
+        if (!speechSynthesis.speaking) {
+          clearTimeout(timerId)
+          return
+        }
+        speechSynthesis.pause()
+        speechSynthesis.resume()
+        speechTimer()
+      }, 14000)
+
+    }
+    speechTimer()
   }
 
   return { startListening, stopListening, talk, talking }
